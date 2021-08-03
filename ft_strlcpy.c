@@ -24,6 +24,6 @@ int main(void)
 	char a[] = "hello world this is me";
 	char b[50] = "abcdefgh";
 
-	printf("%ld\n", ft_strlcpy(b, a, 0));
-	printf("%s\n", b);
+	printf("Mine    : %ld\n", ft_strlcpy(b, a, 0));
+	printf("Mine    : %s\n", b);
 }*/
