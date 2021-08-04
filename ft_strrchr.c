@@ -13,7 +13,7 @@ char	*ft_strrchr(const char *str, int c)
 	}
 	return (0);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 int main()
@@ -23,4 +23,4 @@ int main()
 
 	printf("%s\n", ft_strrchr(str, c));
 	printf("%s\n", strrchr(str, c));
-}
+}*/
