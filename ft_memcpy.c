@@ -1,29 +1,29 @@
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	counter;
+	size_t	i;
 
-	counter = 0;
-	while (counter < n)
+	i = 0;
+	while (i < n)
 	{
-		*(char *)(dest + counter) = *(char *)(src + counter);
-		counter++;
+		*((unsigned char *)(dest + i)) = *((unsigned char *)(src + i));
+		i++;
 	}
 	return (dest);
 }
 /*
 #include <stdio.h>
 #include <string.h>
-  
 int main()
 {
-	char str1[15] = "testr";
-	char str2[15] = "testr";
-	char str3[15] = "aaaaaaaaa";
+	char str1[] = "testr";
+	char str2[] = "testr";
+	char dest1[50];
+	char dest2[50];
 
-	ft_memcpy (str1, str3, sizeof(str3));
-	memcpy (str2, str3, sizeof(str3));
+	ft_memcpy (dest1, str1, sizeof(str1));
+	memcpy (dest2, str2, sizeof(str2));
 	printf("Original: %s\n", str2);
 	printf("Mine    : %s\n", str1);
 	return (0);

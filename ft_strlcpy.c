@@ -19,11 +19,15 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 }
 /*
 #include <stdio.h>
+#include <bsd/string.h>
 int main(void)
 {
-	char a[] = "hello world this is me";
-	char b[50] = "abcdefgh";
+	char a[500] = "hello world this is me";
+	char b[500] = "abcdefgh";
+	char c[500] = "abcdefgh";
 
-	printf("Mine    : %ld\n", ft_strlcpy(b, a, 0));
+	printf("Mine    : %ld\n", ft_strlcpy(b, a, 10));
 	printf("Mine    : %s\n", b);
+	printf("Original: %ld\n", strlcpy(c, a, 10));
+	printf("Original: %s\n", b);
 }*/
