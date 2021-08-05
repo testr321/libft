@@ -3,7 +3,6 @@
 char	*ft_strdup(const char *s)
 {
 	char	*str;
-	size_t	len;
 
 	str = malloc(sizeof(s) * (ft_strlen((char *)s) + 1));
 	if (!str)
@@ -11,7 +10,7 @@ char	*ft_strdup(const char *s)
 	ft_strlcpy(str, s, (ft_strlen((char *)s) + 1));
 	return (str);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 int main()
@@ -28,4 +27,4 @@ int main()
 	printf("Original:\n");
 	printf("%s\n", str2);
 	printf("%p\n", str2);
-}
+}*/
