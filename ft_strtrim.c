@@ -6,10 +6,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	size;
 
 	i = 0;
-	while(s1[i] && (ft_strchr(set, s1[i]) != 0))
+	while (s1[i] && (ft_strchr(set, s1[i]) != 0))
 		i++;
 	size = ft_strlen((char *)s1);
-	while(s1[i] && ft_strchr(set, s1[size - 1]))
+	while (s1[i] && ft_strchr(set, s1[size - 1]))
 		size--;
 	return (ft_substr(s1, i, size - i));
 }

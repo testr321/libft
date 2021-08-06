@@ -5,7 +5,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*str;
 	size_t	size;
 
-	size = ft_strlen((char *)s1) + ft_strlen((char*)s2) + 1;
+	size = ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1;
 	str = malloc(sizeof(s1) * size);
 	if (!str)
 		return (0);

@@ -10,7 +10,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		str = malloc(sizeof(s) * (ft_strlen((char *)s + start) + 1));
 	if (!str || start > (ft_strlen((char *)s) - 1))
 		return (0);
-	
 	ft_strlcpy(str, (s + start), len + 1);
 	return (str);
 }
