@@ -7,7 +7,7 @@ char	*ft_strchr(const char *str, int c)
 	i = 0;
 	while (str[i] || (str[i] == '\0' && c == '\0'))
 	{
-		if (str[i] == c)
+		if (str[i] == (char)c)
 			return ((char *)(str + i));
 		i++;
 	}
