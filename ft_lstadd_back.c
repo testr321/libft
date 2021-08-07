@@ -1,10 +1,11 @@
 #include "libft.h"
-#include <stdio.h>
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	new->next = *lst;
-	*lst = new;
+	t_list	*p;
+
+	p = ft_lstlast(*lst);
+	p->next = new;
 }
 /*
 #include <stdio.h>
@@ -16,7 +17,7 @@ int main()
 	t_list *lst2 = ft_lstnew(str2);
 	printf("%s\n", (char *)lst->content);
 	printf("%s\n\n", (char *)lst2->content);
-	ft_lstadd_front(&lst, lst2);
+	ft_lstadd_back(&lst, lst2);
 	printf("%s\n", (char *)lst->content);
 	lst = lst->next;
 	printf("%s\n", (char *)lst->content);

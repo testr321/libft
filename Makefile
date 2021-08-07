@@ -33,9 +33,22 @@ SRCS = ft_atoi.c \
 	ft_tolower.c \
 	ft_toupper.c 
 OBJS = ${SRCS:c=o}
+BONUSSRCS = ft_lstadd_back.c \
+	ft_lstadd_front.c \
+	ft_lstclear.c \
+	ft_lstdelone.c \
+	ft_lstiter.c \
+	ft_lstlast.c \
+	ft_lstmap.c \
+	ft_lstnew.c \
+	ft_lstsize.c 
+BONUSOBJS = ${BONUSSRCS:c=o}
 NAME = libft.a
 
 all: ${NAME}
+
+bonus: ${BONUSOBJS}
+	ar rcs ${NAME} ${BONUSOBJS}
 
 ${NAME}: ${OBJS}
 	ar rcs ${NAME} ${OBJS}
@@ -44,7 +57,7 @@ ${NAME}: ${OBJS}
 	gcc ${CFLAGS} -c $<
 
 clean:
-	rm -f ${OBJS}
+	rm -f ${OBJS} ${BONUSOBJS}
 
 fclean: clean
 	rm -f ${NAME}
