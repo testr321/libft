@@ -4,10 +4,10 @@ char	*ft_strrchr(const char *str, int c)
 {
 	int	i;
 
-	i = ft_strlen((char *)str) - 1;
+	i = ft_strlen((char *)str);
 	while (i >= 0)
 	{
-		if (str[i] == c)
+		if (str[i] == (char)c)
 			return ((char *)(str + i));
 		i--;
 	}
