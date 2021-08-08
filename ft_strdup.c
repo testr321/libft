@@ -3,11 +3,13 @@
 char	*ft_strdup(const char *s)
 {
 	char	*str;
+	size_t	len;
 
-	str = malloc(sizeof(s) * (ft_strlen((char *)s) + 1));
+	len = ft_strlen(s);
+	str = malloc(sizeof(*s) * (len + 1));
 	if (!str)
 		return (0);
-	ft_strlcpy(str, s, (ft_strlen((char *)s) + 1));
+	ft_strlcpy(str, s, len + 1);
 	return (str);
 }
 /*

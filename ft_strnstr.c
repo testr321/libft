@@ -7,7 +7,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	i = 0;
 	if (!*little)
-		return ((char *)little);
+		return ((char *)big);
 	else if (!*big)
 		return (0);
 	else if (len <= 0)
@@ -30,8 +30,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 #include <string.h>
 int    main()
 {
-    char big[] = "abcdefcdzack";
-    char small[] = "cdz";
-    printf("%s\n", ft_strnstr(big, small, 99));
+    printf("%s\n", ft_strnstr("lorem ipsum dolor sit amet", "", 10));
+	//("%s\n", strnstr("lorem ipsum dolor sit amet", "", 10));
     return (0);
 }*/

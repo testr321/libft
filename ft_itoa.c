@@ -2,9 +2,9 @@
 
 static size_t	ft_getlen(int n)
 {
-	size_t	count;
+	size_t	len;
 
-	count = 0;
+	len = 0;
 	if (n == -2147483648)
 		return (11);
 	else if (n == 0)
@@ -12,49 +12,56 @@ static size_t	ft_getlen(int n)
 	else if (n < 0)
 	{
 		n *= -1;
-		count++;
+		len++;
 	}
 	while (n > 0)
 	{
 		n /= 10;
-		count++;
+		len++;
 	}
-	return (count);
+	return (len);
 }
 
-char	*ft_itoa(int n)
+static void	ft_setstr(char *str, int n, size_t len)
 {
-	size_t	len;
-	int		i;
-	char	*str;
+	int	i;
 
-	i = 0;
-	len = ft_getlen(n);
-	str = malloc(sizeof(*str) * (len + 1));
-	if (!str)
-		return (0);
-	i = len - 1;
-	if (n == -2147483648)
-		return ("-2147483648");
-	else if (n < 0)
+	i = (int)(len - 1);
+	if (n < 0)
 	{
 		str[0] = '-';
 		n *= -1;
 	}
-	while (i >= 0 && str[i] != '-')
+	while (n > 0)
 	{
 		str[i] = (n % 10) + 48;
 		n /= 10;
 		i--;
 	}
 	str[len] = '\0';
+}
+
+char	*ft_itoa(int n)
+{
+	size_t	len;
+	char	*str;
+
+	len = ft_getlen(n);
+	str = malloc(sizeof(*str) * (len + 1));
+	if (!str)
+		return (0);
+	if (n == 0)
+		ft_strlcpy(str, "0", 2);
+	else if (n == -2147483648)
+		ft_strlcpy(str, "-2147483648", 12);
+	else
+		ft_setstr(str, n, len);
 	return (str);
 }
 /*
 #include <stdio.h>
 int main()
 {
-	printf("%s\n", ft_itoa(2147483647));
-	printf("%s\n", ft_itoa(-2147483648));
-	printf("%s\n", ft_itoa(0));
+	char *s = ft_itoa(-2147483648);
+	printf("%s\n", s);
 }*/

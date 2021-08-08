@@ -4,27 +4,21 @@ static size_t	ft_getcount(const char *s, const char c)
 {
 	size_t	count;
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	j = 0;
 	count = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		while (s[i] == c && s[i])
+			i++;
+		if (s[i] != c && s[i])
 		{
-			j = i;
-			while (s[j] == c && s[j])
-			{
-				j++;
-				if (!s[j])
-					return (count + 1);
-			}
 			count++;
+			while (s[i] != c && s[i])
+				i++;
 		}
-		i++;
 	}
-	return (count + 1);
+	return (count);
 }
 
 char	**ft_split(char const *s, char c)
@@ -38,7 +32,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	count = ft_getcount(s, c);
-	str = malloc(sizeof(char **) * (count + 1));
+	str = malloc(sizeof(s) * (count + 1));
 	if (!str)
 		return (0);
 	while (j < count)
@@ -48,7 +42,7 @@ char	**ft_split(char const *s, char c)
 			i++;
 		while (s[i + len] != c && s[i + len])
 			len++;
-		str[j] = malloc(sizeof(char *) * len + 1);
+		str[j] = malloc(sizeof(*s) * len + 1);
 		ft_strlcpy(str[j++], s + i, len + 1);
 		i += len + 1;
 	}
@@ -59,15 +53,11 @@ char	**ft_split(char const *s, char c)
 #include <stdio.h>
 int main()
 {
-	char *str = "abchtestrhhh";
-	char c = 'h';
-	char **s = ft_split(str, c);	
-	size_t i;
-
-	i = 0;
-	while (i < 3)
+	char **tab = ft_split("  tripouille  42  ", ' ');
+	size_t i = 0;
+	while (i < ft_getcount("  tripouille  42  ", ' '))
 	{
-		printf("%s\n", s[i]);
+		printf("%s\n", tab[i]);
 		i++;
 	}
 }*/
