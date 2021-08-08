@@ -13,10 +13,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcat(str, s2, size);
 	return (str);
 }
-
-// #include <stdio.h>
-// int main()
-// {
-// 	char *s = ft_strjoin("tripouille", "42");
-// 	printf("%s\n", s);
-// }
+/*
+ #include <stdio.h>
+ int main()
+ {
+ 	char *s = ft_strjoin("tripouille", "42");
+ 	printf("%s\n", s);
+}*/
