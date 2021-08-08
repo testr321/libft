@@ -1,4 +1,3 @@
-CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_atoi.c \
 	ft_bzero.c \
 	ft_calloc.c \
@@ -33,7 +32,9 @@ SRCS = ft_atoi.c \
 	ft_substr.c \
 	ft_tolower.c \
 	ft_toupper.c 
+
 OBJS = ${SRCS:c=o}
+
 BONUSSRCS = ft_lstadd_back.c \
 	ft_lstadd_front.c \
 	ft_lstclear.c \
@@ -43,16 +44,20 @@ BONUSSRCS = ft_lstadd_back.c \
 	ft_lstmap.c \
 	ft_lstnew.c \
 	ft_lstsize.c 
+
 BONUSOBJS = ${BONUSSRCS:c=o}
+
+CFLAGS = -Wall -Wextra -Werror
+
 NAME = libft.a
 
 all: ${NAME}
 
-bonus: ${BONUSOBJS}
-	ar rcs ${NAME} ${BONUSOBJS}
-
 ${NAME}: ${OBJS}
 	ar rcs ${NAME} ${OBJS}
+
+bonus: ${BONUSOBJS}
+	ar rcs ${NAME} ${BONUSOBJS}
 
 %.o: %.c
 	gcc ${CFLAGS} -c $<
