@@ -1,0 +1,6 @@
+a.out
+testr.c
+*.o
+libft-unit-test
+Libftest
+libftTester
