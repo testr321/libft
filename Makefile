@@ -14,7 +14,7 @@ SRCS = ft_atoi.c \
 	ft_memset.c \
 	ft_putchar_fd.c \
 	ft_putendl_fd.c \
-	ft_putnbr.c \
+	ft_putnbr_fd.c \
 	ft_putstr_fd.c \
 	ft_split.c \
 	ft_strchr.c \
@@ -33,7 +33,7 @@ SRCS = ft_atoi.c \
 	ft_tolower.c \
 	ft_toupper.c 
 
-OBJS = ${SRCS:c=o}
+OBJS = $(SRCS:c=o)
 
 BONUSSRCS = ft_lstadd_back.c \
 	ft_lstadd_front.c \
@@ -45,27 +45,27 @@ BONUSSRCS = ft_lstadd_back.c \
 	ft_lstnew.c \
 	ft_lstsize.c 
 
-BONUSOBJS = ${BONUSSRCS:c=o}
+BONUSOBJS = $(BONUSSRCS:c=o)
 
 CFLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
 
-all: ${NAME}
+all: $(NAME)
 
-${NAME}: ${OBJS}
-	ar rcs ${NAME} ${OBJS}
+$(NAME) : $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
-bonus: ${BONUSOBJS}
-	ar rcs ${NAME} ${BONUSOBJS}
+bonus: $(BONUSOBJS)
+	ar rcs $(NAME) $(BONUSOBJS)
 
 %.o: %.c
-	gcc ${CFLAGS} -c $<
+	gcc $(CFLAGS) -c $<
 
 clean:
-	rm -f ${OBJS} ${BONUSOBJS}
+	rm -f $(OBJS) $(BONUSOBJS)
 
 fclean: clean
-	rm -f ${NAME}
+	rm -f $(NAME)
 
 re: fclean all

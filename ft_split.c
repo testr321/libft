@@ -29,6 +29,8 @@ char	**ft_split(char const *s, char c)
 	size_t	count;
 	size_t	len;
 
+	if (!s)
+		return (0);
 	i = 0;
 	j = 0;
 	count = ft_getcount(s, c);
