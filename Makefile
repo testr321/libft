@@ -69,3 +69,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all $(NAME) bonus %.o clean fclean re
