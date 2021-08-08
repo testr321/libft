@@ -21,43 +21,43 @@ static size_t	ft_getcount(const char *s, const char c)
 	return (count);
 }
 
-static size_t	ft_setstr(char const *s, char c, size_t i, size_t j, char **str)
+static void	ft_setstr(char const *s, char c, size_t count, char **str)
 {
 	size_t	len;
+	size_t	i;
+	size_t	j;
 
-	len = 0;
-	while (s[i] == c)
-		i++;
-	while (s[i + len] != c && s[i + len])
-		len++;
-	str[j] = malloc(sizeof(*s) * len + 1);
-	ft_strlcpy(str[j], s + i, len + 1);
-	i += len + 1;
-	return (i);
+	i = 0;
+	j = 0;
+	while (j < count)
+	{
+		len = 0;
+		while (s[i] == c)
+			i++;
+		while (s[i + len] != c && s[i + len])
+			len++;
+		str[j] = malloc(sizeof(*s) * len + 1);
+		ft_strlcpy(str[j++], s + i, len + 1);
+		i += len + 1;
+	}
+	str[j] = '\0';
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
-	size_t	i;
-	size_t	j;
 	size_t	count;
 
-	i = 0;
-	j = 0;
+	if (!s)
+		return (0);
 	count = ft_getcount(s, c);
 	str = malloc(sizeof(s) * (count + 1));
 	if (!str)
 		return (0);
-	while (j < count)
-	{
-		i = ft_setstr(s, c, i, j, str);
-		j++;
-	}
-	str[j] = '\0';
+	ft_setstr(s, c, count, str);
 	return (str);
 }
-
+/*
 #include <stdio.h>
 int main()
 {
@@ -68,4 +68,4 @@ int main()
 		printf("%s\n", tab[i]);
 		i++;
 	}
-}
+}*/
