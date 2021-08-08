@@ -1,6 +1,7 @@
 a.out
 testr.c
 *.o
+*.a
 libft-unit-test
 Libftest
 libftTester
