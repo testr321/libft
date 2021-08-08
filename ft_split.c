@@ -21,6 +21,21 @@ static size_t	ft_getcount(const char *s, const char c)
 	return (count);
 }
 
+static size_t	ft_setstr(char const *s, char c, size_t i, size_t j, char **str)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[i] == c)
+		i++;
+	while (s[i + len] != c && s[i + len])
+		len++;
+	str[j] = malloc(sizeof(*s) * len + 1);
+	ft_strlcpy(str[j], s + i, len + 1);
+	i += len + 1;
+	return (i);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
@@ -29,8 +44,6 @@ char	**ft_split(char const *s, char c)
 	size_t	count;
 	size_t	len;
 
-	if (!s)
-		return (0);
 	i = 0;
 	j = 0;
 	count = ft_getcount(s, c);
@@ -39,19 +52,13 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	while (j < count)
 	{
-		len = 0;
-		while (s[i] == c)
-			i++;
-		while (s[i + len] != c && s[i + len])
-			len++;
-		str[j] = malloc(sizeof(*s) * len + 1);
-		ft_strlcpy(str[j++], s + i, len + 1);
-		i += len + 1;
+		i = ft_setstr(s, c, i, j, str);
+		j++;
 	}
-	str[j] = 0;
+	str[j] = '\0';
 	return (str);
 }
-/*
+
 #include <stdio.h>
 int main()
 {
@@ -62,4 +69,4 @@ int main()
 		printf("%s\n", tab[i]);
 		i++;
 	}
-}*/
+}
