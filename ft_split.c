@@ -42,7 +42,6 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	size_t	j;
 	size_t	count;
-	size_t	len;
 
 	i = 0;
 	j = 0;
