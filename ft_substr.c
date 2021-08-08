@@ -8,14 +8,18 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (0);
 	if (start > ft_strlen(s))
-		return (ft_strdup("\0"));
+	{
+		str = malloc(sizeof(*s) * 1);
+		str[0] = '\0';
+		return (str);
+	}
 	if (len <= ft_strlen(s + start))
 		size = len;
 	else
 		size = ft_strlen(s + start);
 	str = malloc(sizeof(*s) * (size + 1));
 	if (!str)
-		return (ft_strdup("\0"));
+		return (0);
 	ft_strlcpy(str, (s + start), size + 1);
 	return (str);
 }
